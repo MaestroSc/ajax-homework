@@ -25,7 +25,7 @@ function getXmlHttp(){
 	    	
 	    	clientData = JSON.parse(xhr.responseText);
 
-	    	if (clientData.message != undefined){ //Проверка страницы на существование
+	    	if (clientData.message){ //Проверка страницы на существование
 	    		outRepo.innerHTML = '<span class="errorInfo">Такого пользователя не существует</span>';
 	    		outData.style.display = 'none';
 	    		localStorage.setItem(inLogin, false); //Проверка на существование страницы
@@ -67,7 +67,7 @@ function getXmlHttp(){
 
 	    	clientData = JSON.parse(xhr.responseText);
 
-	    	if (clientData.message == undefined){
+	    	if (!clientData.message){
 	    		outRepo.innerHTML = '<span>Репозитории: </span><br>';
 	    		
 	    		strRepo = '';
