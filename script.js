@@ -15,7 +15,25 @@ function getXmlHttp(){
 		outRepo = document.getElementById('outRepo'),
 		outImg = document.getElementById('avatar'),
 		clientData, i, strRepo,
-		userInfo = {};
+		userInfo = {},
+		storage = window['localStorage'],
+		tempUser;
+
+	function clearOldInfo(){ //Функция проверки в localStorage старых записей
+		if (!sessionStorage.time) sessionStorage.time = 0;
+
+		if (new Date() - new Date(sessionStorage.time) > 86400000){
+			sessionStorage.time = new Date()
+
+			for (i = 0; i < storage.length; i++) {
+				tempUser = JSON.parse(localStorage[storage.key(i)]);
+
+				if (new Date() - new Date(tempUser.createTime) > 86400000){
+					storage.removeItem(storage.key(i));
+				}
+			}
+		}
+	}
 
 	function getMainData() { //функция парсит данные
 		var xhr = new XMLHttpRequest();
@@ -104,6 +122,7 @@ function getXmlHttp(){
 
 	//Проверка на кэш результата, и если они есть, на их актуальность (не прошли ли сутки с момента их создания)
 	if ((!userInfo.name) || (new Date() - new Date(userInfo.createTime) > 86400000)){
+		clearOldInfo(); // Функция проверки старых записей в localStorage
 		getMainData(); // Функция парсинга данных пользователя
 	} else {
 		if (userInfo.loginStatus == false){

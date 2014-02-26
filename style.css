@@ -4,8 +4,8 @@ body{
 
 .top{
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 50px;
 	background-color: #1c1c1c;
@@ -19,7 +19,7 @@ body{
 
 .main{
 	width: 450px;
-	margin: 80px auto 0px;
+	margin: 80px auto 0;
 	padding: 20px;
 	background-color: #F9F9F9;
 	border-radius: 3px;
@@ -29,7 +29,7 @@ body{
 
 input{
 	border: 1px solid #BABABA;
-	margin: 0px 5px;
+	margin: 0 5px;
 	background-color: #FDFDFD;
 }
 
@@ -47,7 +47,7 @@ span{
 
 .lineOut{
 	display: block;
-	margin: 15px 5px 0px;
+	margin: 15px 5px 0;
 	line-height: 20pt;
 }
 
@@ -60,7 +60,7 @@ img{
 
 #outRepo{
 	display: block;
-	margin: 15px 5px 0px;
+	margin: 15px 5px 0;
 	line-height: 20pt;
 }
 
@@ -82,7 +82,7 @@ a:hover{
 }
 
 .errorInfo{
-	padding: 0px 30px;
+	padding: 0 30px;
 	font-family: monospace;
 	font-size: 14pt;
 	color: #1A38FF;
